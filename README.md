@@ -8,9 +8,9 @@ The motivation of this package is to facilitate drawing figures like Fig. 1 of t
 Lawrence et al., Mutational heterogeneity in cancer and the search for new cancer-associated genes. *Nature* 499, 214–218 (2013) [doi:10.1038/nature12213] (https://dx.doi.org/10.1038/nature12213)
 
 ##INSTRATION
-`
+```
 install.packages("devtools")  
 devtools::install_github("msfuji/geomsort")
-`
+````
 
 ##USAGE
