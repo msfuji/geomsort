@@ -56,12 +56,15 @@ PositionSort <- ggproto("PositionSort", ggplot2::Position,
   compute_layer = function(data, params, panel) {
     pos.in.group=rep(0,nrow(data))
     names(pos.in.group)=rownames(data)
-    for(x in unique(data$x)) {
-      s=subset(data, x==x)
-      pos.in.group[rownames(s)]=rank(s$y)/nrow(s)
+    for(grp in unique(data$x)) {
+      s=subset(data, x==grp)
+      num=nrow(s)
+      pos.in.group[rownames(s)]=rank(s$y)/num
+      pos.in.group[rownames(s)]=(pos.in.group[rownames(s)] - (1/num+1)/2) * params$width
     }
 
-    trans_x <- function(x) data$x + (pos.in.group - 0.5) * params$width
+    trans_x <- function(x) data$x + pos.in.group# * params$width
+    print(pos.in.group)
     transform_position(data, trans_x)
   }
 )
