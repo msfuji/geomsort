@@ -1,5 +1,5 @@
 # geomsort
-An ggplot2 extension for drawing figures like below.
+An ggplot2 extension for drawing figures like below. Points in each category are sorted by their y-coordinates to reduce the overlaps and enhance visibility.
 ![Alt text](example/example.png)
 ![Alt text](example/example2.png)
 
