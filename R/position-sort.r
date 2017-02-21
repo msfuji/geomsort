@@ -32,8 +32,6 @@
 #' ggplot(mtcars, aes(am, vs)) +
 #'   geom_jitter(position = position_jitter(width = 0.1, height = 0.1))
 
-library(ggplot2)
-
 position_sort <- function(width = NULL) {
   ggproto(NULL, PositionSort,
     width = width
