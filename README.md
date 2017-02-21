@@ -9,8 +9,7 @@ Lawrence et al., Mutational heterogeneity in cancer and the search for new cance
 
 ##INSTRATION
 `
-install.packages("devtools")
-
+install.packages("devtools")  
 devtools::install_github("msfuji/geomsort")
 `
 
