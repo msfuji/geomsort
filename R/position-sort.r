@@ -64,7 +64,6 @@ PositionSort <- ggproto("PositionSort", ggplot2::Position,
     }
 
     trans_x <- function(x) data$x + pos.in.group# * params$width
-    print(pos.in.group)
     transform_position(data, trans_x)
   }
 )
