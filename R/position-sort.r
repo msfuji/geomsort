@@ -42,7 +42,7 @@ position_sort <- function(width = NULL) {
 #' @format NULL
 #' @usage NULL
 #' @export
-PositionSort <- ggproto("PositionSort", ggplot2::Position,
+PositionSort <- ggproto("PositionSort", Position,
   required_aes = c("x", "y"),
 
   setup_params = function(self, data) {
@@ -61,7 +61,8 @@ PositionSort <- ggproto("PositionSort", ggplot2::Position,
       pos.in.group[rownames(s)]=(pos.in.group[rownames(s)] - (1/num+1)/2) * params$width
     }
 
-    trans_x <- function(x) data$x + pos.in.group# * params$width
+    print(data$x)
+    trans_x <- function(x) data$x + pos.in.group
     transform_position(data, trans_x)
   }
 )

@@ -1,47 +1,43 @@
-#' Jittered points
+#' Sorted points
 #'
-#' The jitter geom is a convenient shortcut for
-#' \code{geom_point(position = "jitter")}. It adds a small amount of random
-#' variation to the location of each point, and is a useful way of handling
-#' overplotting caused by discreteness in smaller datasets.
+#' The sort geom is a convenient shortcut for
+#' \code{geom_point(position = "sort")}. It shifts the location of data points
+#' horizontally, depending on the rank among the data. This is a useful way to
+#' reduce overplotting between data points.
 #'
 #' @section Aesthetics:
 #' \aesthetics{geom}{point}
 #'
 #' @inheritParams layer
 #' @inheritParams geom_point
-#' @inheritParams position_jitter
+#' @inheritParams position_sort
 #' @seealso
-#'  \code{\link{geom_point}} for regular, unjittered points,
-#'  \code{\link{geom_boxplot}} for another way of looking at the conditional
-#'     distribution of a variable
+#'  \code{\link{geom_point}} for regular, unsorted points,
+#'  \code{\link{geom_jitter}} for another way to avoid overplotting by adding
+#'     random variation to the location of points.
 #' @export
 #' @examples
-#' p <- ggplot(mpg, aes(cyl, hwy))
+#' p <- ggplot(mpg, aes(cyl, hwy)) 
 #' p + geom_point()
-#' p + geom_jitter()
+#' p + geom_sort()
 #'
 #' # Add aesthetic mappings
-#' p + geom_jitter(aes(colour = class))
+#' p + geom_sort(aes(colour = class))
 #'
 #' # Use smaller width/height to emphasise categories
-#' ggplot(mpg, aes(cyl, hwy)) + geom_jitter()
-#' ggplot(mpg, aes(cyl, hwy)) + geom_jitter(width = 0.25)
+#' ggplot(mpg, aes(cyl, hwy)) + geom_sort()
+#' ggplot(mpg, aes(cyl, hwy)) + geom_sort(width = 0.2)
 #'
-#' # Use larger width/height to completely smooth away discreteness
-#' ggplot(mpg, aes(cty, hwy)) + geom_jitter()
-#' ggplot(mpg, aes(cty, hwy)) + geom_jitter(width = 0.5, height = 0.5)
 geom_sort <- function(mapping = NULL, data = NULL,
                         stat = "identity", position = "sort",
                         ...,
                         width = NULL,
-                        height = NULL,
                         na.rm = FALSE,
                         show.legend = NA,
                         inherit.aes = TRUE) {
-  if (!missing(width) || !missing(height)) {
+  if (!missing(width)) {
     if (!missing(position)) {
-      stop("Specify either `position` or `width`/`height`", call. = FALSE)
+      stop("Specify either `position` or `width`", call. = FALSE)
     }
 
     position <- position_sort(width = width)

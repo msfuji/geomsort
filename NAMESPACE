@@ -1,2 +1,3 @@
-exportPattern("^[[:alpha:]]+")
+export(geom_sort)
+export(position_sort)
 import(ggplot2)

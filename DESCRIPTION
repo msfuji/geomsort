@@ -1,12 +1,14 @@
 Package: geomsort
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Masashi Fujita
-Maintainer: Masashi Fujita <mssfjt@gmail.com>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: MIT + file LICENSE
+Title: An Extension to 'ggplot2' for Sorted Plot of Data Points
+Version: 0.1.1
+Authors@R: person("Masashi", "Fujita", ,"mssfjt@gmail.com", role = c("aut", "cre"))
+Description: Plots data points with less overlap by adding rank-dependent
+    horizontal variations.
+License: GPL-2
+URL: https://github.com/msfuji/geomsort
 Encoding: UTF-8
 LazyData: true
-Imports: ggplot2
+Depends:
+    R (>= 3.1)
+Imports: ggplot2 (>= 1.0.0)
