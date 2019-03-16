@@ -47,7 +47,7 @@ PositionSort <- ggproto("PositionSort", Position,
 
   setup_params = function(self, data) {
     list(
-      width = self$width %||% (resolution(data$x, zero = FALSE) * 0.4)
+      width = self$width %||% (resolution(data$x, zero = FALSE) * 0.9)
     )
   },
 
@@ -57,11 +57,10 @@ PositionSort <- ggproto("PositionSort", Position,
     for(grp in unique(data$x)) {
       s=subset(data, x==grp)
       num=nrow(s)
-      pos.in.group[rownames(s)]=rank(s$y)/num
+      pos.in.group[rownames(s)]=rank(s$y, ties.method="first")/num
       pos.in.group[rownames(s)]=(pos.in.group[rownames(s)] - (1/num+1)/2) * params$width
     }
 
-    print(data$x)
     trans_x <- function(x) data$x + pos.in.group
     transform_position(data, trans_x)
   }
