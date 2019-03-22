@@ -1,6 +1,7 @@
 # geomsort
 An ggplot2 extension for sorting data points to reduce overplotting. Data points are sorted with their y-coordinates, and horizontal variations are added to their locations to enhance visibility.
-![Alt text](example/example.png)
+
+<img src="example/example.png" width="600px">
 
 The motivation of this package is to facilitate drawing figures like Fig. 1 of the following paper.
 
